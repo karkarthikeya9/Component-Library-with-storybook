@@ -1,0 +1,37 @@
+name: CI
+
+# Runs the full verification pipeline on every push and pull request.
+# Mirrors the blueprint §11 pipeline: install -> type check -> test -> build ->
+# build Storybook. (Lint is omitted until ESLint is added.)
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Unit/component tests
+        run: npm test
+
+      - name: Build library
+        run: npm run build
+
+      - name: Build Storybook
+        run: npm run build-storybook

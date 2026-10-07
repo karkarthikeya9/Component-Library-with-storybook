@@ -1,0 +1,61 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import { Button } from '../components/Button/Button';
+import { Badge } from '../components/Badge/Badge';
+import { Card } from '../components/Card/Card';
+
+<Meta title="Introduction" />
+
+# react-assignment-ui
+
+A production-quality React component library built with **React 19**, **TypeScript**,
+**Vite**, **Tailwind CSS v4**, and **Storybook 10**. Design tokens are defined as
+CSS variables and exposed through Tailwind utilities and a typed `tokens` export.
+
+## Install
+
+```bash
+npm install react-assignment-ui
+```
+
+```tsx
+import 'react-assignment-ui/styles.css';
+import { Button, Badge, Card } from 'react-assignment-ui';
+```
+
+## Usage
+
+Buttons come in five variants and three sizes:
+
+<Button>Primary</Button>{' '}
+<Button variant="secondary">Secondary</Button>{' '}
+<Button variant="outline">Outline</Button>{' '}
+<Button variant="ghost">Ghost</Button>{' '}
+<Button variant="destructive">Destructive</Button>
+
+Badges communicate status:
+
+<Badge variant="success">Success</Badge>{' '}
+<Badge variant="warning" dot>
+  Warning
+</Badge>{' '}
+<Badge variant="error">Error</Badge>{' '}
+<Badge variant="info">Info</Badge>
+
+Cards compose via static subcomponents:
+
+<Card padding="none" className="max-w-sm">
+  <Card.Header>
+    <h3 className="text-lg font-semibold text-foreground">Getting started</h3>
+    <p className="text-sm text-muted">Read the docs to learn more.</p>
+  </Card.Header>
+  <Card.Content>Each component is documented with its own props table.</Card.Content>
+  <Card.Footer className="justify-end">
+    <Button size="sm">Done</Button>
+  </Card.Footer>
+</Card>
+
+## Browse the docs
+
+Each component page (see the **Components** section) is generated from its
+stories and includes an interactive controls table and a props table. The
+**Design Tokens** section documents every CSS-variable token.

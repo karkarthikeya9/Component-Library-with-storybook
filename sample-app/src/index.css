@@ -1,0 +1,11 @@
+/*
+ * Sample-app stylesheet.
+ *
+ * Imports the library's global stylesheet (the single source of truth for
+ * design tokens and component utilities) and declares the sample app's own
+ * source files for Tailwind scanning.
+ */
+@import "../../src/styles/globals.css";
+
+@source "./**/*.{ts,tsx}";
+@source "../../src/**/*.{ts,tsx}";
